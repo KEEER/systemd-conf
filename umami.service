@@ -1,0 +1,17 @@
+[Unit]
+Description=KEEER Analytics
+Requires=After=postgresql.service
+
+[Service]
+ExecStart=/usr/bin/node -r dotenv/config scripts/start-env
+WorkingDirectory=/home/umami/umami
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=umami
+User=umami
+Group=umami
+
+[Install]
+WantedBy=multi-user.target

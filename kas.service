@@ -1,0 +1,17 @@
+[Unit]
+Description=KEEER Account Service
+Requires=After=postgresql.service
+
+[Service]
+ExecStart=/usr/bin/node server
+WorkingDirectory=/home/kas/node-kas
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=kas
+User=kas
+Group=kas
+
+[Install]
+WantedBy=multi-user.target

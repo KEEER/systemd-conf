@@ -1,0 +1,17 @@
+[Unit]
+Description=KEEER Cloud Print Remote
+Requires=After=postgresql.service
+
+[Service]
+ExecStart=/usr/bin/python3 server.py
+WorkingDirectory=/home/print/remote
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=print
+User=print
+Group=print
+
+[Install]
+WantedBy=multi-user.target

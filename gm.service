@@ -1,0 +1,17 @@
+[Unit]
+Description=Graduation message server
+Requires=After=postgresql.service
+
+[Service]
+ExecStart=/usr/bin/python3 server.py
+WorkingDirectory=/home/gm/graduation-message
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gm-server
+User=gm
+Group=gm
+
+[Install]
+WantedBy=multi-user.target
